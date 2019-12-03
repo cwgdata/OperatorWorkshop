@@ -28,7 +28,7 @@ You will be prompted for a password, which is `operat0r`
 
 `kubectl get nodes -o wide`
 
-## Change to helm directory after cloning
+## Change to helm directory
 
 `cd operator/helm`
 

@@ -148,14 +148,13 @@ sasl.mechanism=PLAIN
 
 ### Run a producer
 
-`seq 10000 | kafka-console-producer --topic example --broker-list <IP ADDRESS FROM ABOVE>:9092 --producer.config ka
-fka.properties`
+`seq 10000 | kafka-console-producer --topic example --broker-list <IP ADDRESS FROM ABOVE>:9092 \
+--producer.config kafka.properties`
   
 ### Run a consumer
 
-`kafka-console-consumer --from-beginning --topic example --bootstrap-server <IP ADDRESS FROM ABOVE>:9092 --consume
-r.config kafka.properties`
-
+`kafka-console-consumer --from-beginning --topic example --bootstrap-server <IP ADDRESS FROM ABOVE>:9092 \
+--consumer.config kafka.properties`
 
 
 

@@ -2,9 +2,9 @@
 
 ## Initial Setup
 
-## Substitute your first initial + last name whever you see REPLACE THIS below, ex: cgilmore
+### Substitute your first initial + last name whever you see REPLACE THIS below, ex: cgilmore
 
-### ssh to server 
+## ssh to server 
 (for MacOS / Linux users)
 
 `ssh REPLACE_THIS@35.212.155.222`

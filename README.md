@@ -32,7 +32,7 @@ You will be prompted for a password, which is `operat0r`
 
 `cd operator/helm`
 
-## View YAML and walk through all the option
+## View YAML and walk through all the options
 
 `vi providers/workshop.yaml`
 

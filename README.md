@@ -85,7 +85,7 @@ navigate to below and use the login admin with password Developer1
 
 ## Upgrade Kafka
 
-`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=3 --set kafka.image.tag=5.3.1.0 kafka-cliff ./confluent-operator`
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 --set kafka.image.tag=5.3.1.0 kafka-cliff ./confluent-operator`
 
 ## watch the nodes rolling restart!
 

@@ -64,15 +64,35 @@ You will be prompted for a password, which is operat0r
 
 `helm install -f ./providers/REPLACE_THIS.yaml --name controlcenter-REPLACE_THIS  --namespace REPLACE_THIS --set controlcenter.enabled=true ./confluent-operator`
 
+## Navigate browser to c3
+
+### get IP for c3 endpoint
+
+Grab the 2nd IP from the output of the following command
+`kubectl -n cliff get svc | grep controlcenter | grep lb`
+
+navigate to below and use the login admin with password Developer1
+`http://<IP FROM ABOVE>:9021`
+
+
 ## Scale Kafka
 
-`kubectl edit kafka kafka-REPLACE_THIS -n REPLACE_THIS`
-
-Change the replicas value to 4 and save!
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 kafka-cliff ./confluent-operator`
 
 ## Look at new node!
 
 `kubectl -n REPLACE_THIS get pods -o wide | grep kafka`
+
+## Upgrade Kafka
+
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=3 --set kafka.image.tag=5.3.1.0 kafka-cliff ./confluent-operator`
+
+## watch the nodes rolling restart!
+
+`watch -n 5 kubectl -n REPLACE_THIS get pods -o wide`
+
+
+
 
 ## Clean up!
 

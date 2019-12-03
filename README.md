@@ -106,7 +106,7 @@ You will be prompted for a password, which is operat0r
 
 Grab the 2nd IP from the output of the following command
 
-`kubectl -n cliff get svc | grep controlcenter | grep lb`
+`kubectl -n REPLACE_THIS get svc | grep controlcenter | grep lb`
 
 Navigate to below and use the login admin with password Developer1
 
@@ -115,7 +115,7 @@ Navigate to below and use the login admin with password Developer1
 
 ## Scale Kafka
 
-`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 kafka-cliff ./confluent-operator`
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 kafka-REPLACE_THIS ./confluent-operator`
 
 ## Look at new node!
 
@@ -123,7 +123,7 @@ Navigate to below and use the login admin with password Developer1
 
 ## Upgrade Kafka
 
-`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 --set kafka.image.tag=5.3.1.0 kafka-cliff ./confluent-operator`
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 --set kafka.image.tag=5.3.1.0 kafka-REPLACE_THIS ./confluent-operator`
 
 ## Watch the nodes rolling restart!
 

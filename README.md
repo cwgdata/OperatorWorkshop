@@ -11,7 +11,7 @@ Substitute your first initial + last name whever you see REPLACE THIS below, ex:
 
 (for MacOS / Linux users)
 
-`ssh REPLACE_THIS@35.209.155.2542`
+`ssh REPLACE_THIS@35.209.155.254`
 
 (for Windows users)
 

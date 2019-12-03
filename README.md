@@ -8,9 +8,11 @@
 (for MacOS / Linux users)
 
 `ssh REPLACE_THIS@35.212.155.222`
+
 (for Windows users)
 
-putty REPLACE_THIS@35.212.155.222
+`putty REPLACE_THIS@35.212.155.222`
+
 You will be prompted for a password, which is operat0r
 
 ## Test Kubernetes Config

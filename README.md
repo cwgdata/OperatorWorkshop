@@ -21,7 +21,7 @@ Substitute your first initial + last name whever you see REPLACE THIS below, ex:
 
 `http://35.209.155.254:2222/ssh/host/jumphost-operator-workshop-central`
 
-You will be prompted for a password, which is operat0r
+You will be prompted for a password, which is `operat0r`
 
 
 ## Test Kubernetes Config

@@ -133,7 +133,7 @@ Navigate to below and use the login admin with password Developer1
 
 ### Get Kafka bootstrap LB IP (2nd IP in the below
 
-`kubectl -n cliff get svc | grep kafka | grep bootstrap-lb`
+`kubectl -n REPLACE_THIS get svc | grep kafka | grep bootstrap-lb`
 
 
 ### Create kafka.properties file in your directory and substitute the IP above

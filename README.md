@@ -141,7 +141,7 @@ Navigate to below and use the login username `admin` with password `Developer1`
 
 ```
 bootstrap.servers=<IP ADDRESS FROM ABOVE>:9092
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="test"
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule \ required username="test" \
  password="test123";
 sasl.mechanism=PLAIN
 ```

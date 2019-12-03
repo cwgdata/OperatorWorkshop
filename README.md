@@ -17,6 +17,7 @@ Alternatively, you can `export NS=cgilmore` in your shell first and it will subs
 (for Windows users - you'll have to replace $NS with %NS%)
 
 `set NS=cgilmore`
+
 `putty %NS%@35.209.155.254`
 
 (for users who can't ssh on port 22, you can use the following in a web browser)
@@ -108,7 +109,7 @@ Grab the 2nd IP from the output of the following command
 
 `kubectl -n $NS get svc | grep controlcenter | grep lb`
 
-Navigate to below and use the login admin with password Developer1
+Navigate to below and use the login username `admin` with password `Developer1`
 
 `http://<IP FROM ABOVE>:9021`
 

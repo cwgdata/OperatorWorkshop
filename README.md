@@ -17,9 +17,9 @@ Substitute your first initial + last name whever you see REPLACE THIS below, ex:
 
 `putty REPLACE_THIS@35.209.155.254`
 
-(for users who can't ssh on port 22)
+(for users who can't ssh on port 22, you can use the following in a web browser)
 
-`http://35.209.155.254:2222/ssh/host/jumphost-operator-workshop-central`
+http://35.209.155.254:2222/ssh/host/jumphost-operator-workshop-central
 
 You will be prompted for a password, which is `operat0r`
 

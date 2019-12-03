@@ -7,11 +7,15 @@
 ## ssh to server 
 (for MacOS / Linux users)
 
-`ssh REPLACE_THIS@35.212.155.222`
+`ssh REPLACE_THIS@35.209.155.2542`
 
 (for Windows users)
 
-`putty REPLACE_THIS@35.212.155.222`
+`putty REPLACE_THIS@35.209.155.254`
+
+(for users who can't ssh on port 22)
+
+`http://35.209.155.254:2222/ssh/host/jumphost-operator-workshop-central`
 
 You will be prompted for a password, which is operat0r
 
@@ -38,23 +42,23 @@ You will be prompted for a password, which is operat0r
 
 `helm install -f ./providers/workshop.yaml --name kafka-REPLACE_THIS  --namespace REPLACE_THIS --set kafka.enabled=true ./confluent-operator`
 
-## Look at Services
+## List the Network Services we created
 `kubectl -n REPLACE_THIS get services -o wide`
 
-## Look at Services
+## Look at Persistant Volumes we created
 `kubectl -n REPLACE_THIS get pvc -o wide`
 
 ## Deploy Connect
 
-`helm install -f ./providers/REPLACE_THIS.yaml --name connect-REPLACE_THIS  --namespace REPLACE_THIS --set connect.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name connect-REPLACE_THIS  --namespace REPLACE_THIS --set connect.enabled=true ./confluent-operator`
 
 ## Deploy Schema Registry
 
-`helm install -f ./providers/REPLACE_THIS.yaml --name schemaregistry-REPLACE_THIS  --namespace REPLACE_THIS --set schemaregistry.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name schemaregistry-REPLACE_THIS  --namespace REPLACE_THIS --set schemaregistry.enabled=true ./confluent-operator`
 
 ## Deploy KSQL
 
-`helm install -f ./providers/REPLACE_THIS.yaml --name ksql-REPLACE_THIS  --namespace REPLACE_THIS --set ksql.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name ksql-REPLACE_THIS  --namespace REPLACE_THIS --set ksql.enabled=true ./confluent-operator`
 
 ## Deploy C3
 

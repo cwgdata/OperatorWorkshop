@@ -93,16 +93,16 @@ You will be prompted for a password, which is `operat0r`
 `helm install -f ./providers/workshop.yaml --name ksql-$NS  --namespace $NS --set ksql.enabled=true ./confluent-operator`
 
 
-## Deploy C3
+## Deploy Confluent Control Center
 
 
 `helm install -f ./providers/workshop.yaml --name controlcenter-$NS  --namespace $NS --set controlcenter.enabled=true ./confluent-operator`
 
 
-## Navigate browser to c3
+## Navigate web browser to Confluent Control Center
 
 
-### get IP for c3 endpoint
+### get IP for Confluent Control Center (C3) endpoint
 
 Grab the 2nd IP from the output of the following command
 

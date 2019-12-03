@@ -4,18 +4,20 @@
 ## Initial Setup
 
 
-Substitute your first initial + last name whever you see REPLACE THIS below, ex: cgilmore
+Substitute your first initial + last name whever you see $NS below, ex: cgilmore
+Alternatively, you can `export NS=cgilmore` in your shell first and it will substitute leveraging a shell variable.
 
 
 ## SSH to Workshop Server 
 
 (for MacOS / Linux users)
 
-`ssh REPLACE_THIS@35.209.155.254`
+`ssh $NS@35.209.155.254`
 
-(for Windows users)
+(for Windows users - you'll have to replace $NS with %NS%)
 
-`putty REPLACE_THIS@35.209.155.254`
+`set NS=cgilmore`
+`putty %NS%@35.209.155.254`
 
 (for users who can't ssh on port 22, you can use the following in a web browser)
 
@@ -39,64 +41,62 @@ You will be prompted for a password, which is `operat0r`
 ## Deploy Zookeeper
 
 
-`helm install -f ./providers/workshop.yaml --name zookeeper-REPLACE_THIS  --namespace REPLACE_THIS --set zookeeper.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name zookeeper-$NS  --namespace $NS --set zookeeper.enabled=true ./confluent-operator`
 
 
 ## Check deployment
 
 
-`kubectl -n REPLACE_THIS get pods -o wide`
+`kubectl -n $NS get pods -o wide`
 
 
 ## Deploy Kafka
 
 
-`helm install -f ./providers/workshop.yaml --name kafka-REPLACE_THIS  --namespace REPLACE_THIS --set kafka.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name kafka-$NS  --namespace $NS --set kafka.enabled=true ./confluent-operator`
 
 
 ## List the Network Services we created
 
 
-`kubectl -n REPLACE_THIS get services -o wide`
+`kubectl -n $NS get services -o wide`
 
 
 ## Look at Persistant Volumes we created
 
 
-`kubectl -n REPLACE_THIS get pvc -o wide`
+`kubectl -n $NS get pvc -o wide`
 
 ## Look at Kafka cluster details
 
 
-`kubectl -n REPLACETHIS describe kafka`
+`kubectl -n $NS describe kafka`
 
 ## Look at Kafka node logs
 
-`kubectl -n REPLACE_THIS logs kafka-REPLACE_THIS-0`
-
-
-## Deploy Connect
-
-
-`helm install -f ./providers/workshop.yaml --name connect-REPLACE_THIS  --namespace REPLACE_THIS --set connect.enabled=true ./confluent-operator`
-
+`kubectl -n $NS logs kafka-$NS-0`
 
 ## Deploy Schema Registry
 
 
-`helm install -f ./providers/workshop.yaml --name schemaregistry-REPLACE_THIS  --namespace REPLACE_THIS --set schemaregistry.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name schemaregistry-$NS  --namespace $NS --set schemaregistry.enabled=true ./confluent-operator`
+
+## Deploy Connect
+
+
+`helm install -f ./providers/workshop.yaml --name connect-$NS  --namespace $NS --set connect.enabled=true ./confluent-operator`
 
 
 ## Deploy KSQL
 
 
-`helm install -f ./providers/workshop.yaml --name ksql-REPLACE_THIS  --namespace REPLACE_THIS --set ksql.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name ksql-$NS  --namespace $NS --set ksql.enabled=true ./confluent-operator`
 
 
 ## Deploy C3
 
 
-`helm install -f ./providers/REPLACE_THIS.yaml --name controlcenter-REPLACE_THIS  --namespace REPLACE_THIS --set controlcenter.enabled=true ./confluent-operator`
+`helm install -f ./providers/workshop.yaml --name controlcenter-$NS  --namespace $NS --set controlcenter.enabled=true ./confluent-operator`
 
 
 ## Navigate browser to c3
@@ -106,7 +106,7 @@ You will be prompted for a password, which is `operat0r`
 
 Grab the 2nd IP from the output of the following command
 
-`kubectl -n REPLACE_THIS get svc | grep controlcenter | grep lb`
+`kubectl -n $NS get svc | grep controlcenter | grep lb`
 
 Navigate to below and use the login admin with password Developer1
 
@@ -115,25 +115,25 @@ Navigate to below and use the login admin with password Developer1
 
 ## Scale Kafka
 
-`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 kafka-REPLACE_THIS ./confluent-operator`
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 kafka-$NS ./confluent-operator`
 
 ## Look at new node!
 
-`kubectl -n REPLACE_THIS get pods -o wide | grep kafka`
+`kubectl -n $NS get pods -o wide | grep kafka`
 
 ## Upgrade Kafka
 
-`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 --set kafka.image.tag=5.3.1.0 kafka-REPLACE_THIS ./confluent-operator`
+`helm upgrade -f ./providers/workshop.yaml --set kafka.enabled=true --set kafka.replicas=2 --set kafka.image.tag=5.3.1.0 kafka-$NS ./confluent-operator`
 
 ## Watch the nodes rolling restart!
 
-`watch -n 5 kubectl -n REPLACE_THIS get pods -o wide`
+`watch -n 5 kubectl -n $NS get pods -o wide`
 
 ## Run a Producer
 
 ### Get Kafka bootstrap LB IP (2nd IP in the below
 
-`kubectl -n REPLACE_THIS get svc | grep kafka | grep bootstrap-lb`
+`kubectl -n $NS get svc | grep kafka | grep bootstrap-lb`
 
 
 ### Create kafka.properties file in your directory and substitute the IP above
@@ -158,13 +158,13 @@ r.config kafka.properties`
 
 
 
-## Clean up!
+## Clean up (please)!
 
 ```
-helm delete --purge controlcenter-REPLACE_THIS
-helm delete --purge ksql-REPLACE_THIS
-helm delete --purge schemaregistry-REPLACE_THIS
-helm delete --purge connect-REPLACE_THIS
-helm delete --purge kafka-REPLACE_THIS
-helm delete --purge zookeeper-REPLACE_THIS
+helm delete --purge controlcenter-$NS
+helm delete --purge ksql-$NS
+helm delete --purge connect-$NS
+helm delete --purge schemaregistry-$NS
+helm delete --purge kafka-$NS
+helm delete --purge zookeeper-$NS
 ```

@@ -12,17 +12,17 @@ Alternatively, you can `export NS=cgilmore` in your shell first and it will subs
 
 (for MacOS / Linux users)
 
-`ssh $NS@35.209.155.254`
+`ssh $NS@35.215.101.61`
 
 (for Windows users - you'll have to replace $NS with %NS%)
 
 `set NS=cgilmore`
 
-`putty %NS%@35.209.155.254`
+`putty %NS%@35.215.101.61`
 
 (for users who can't ssh on port 22, you can use the following in a web browser)
 
-http://35.209.155.254:2222/ssh/host/jumphost-operator-workshop-central
+http://35.215.101.61:2222/ssh/host/jumphost-operator-workshop-central
 
 You will be prompted for a password, which is `operat0r`
 

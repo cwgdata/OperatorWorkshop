@@ -22,7 +22,7 @@ Alternatively, you can `export NS=cgilmore` in your shell first and it will subs
 
 (for users who can't ssh on port 22, you can use the following in a web browser)
 
-http://35.215.101.61:2222/ssh/host/jumphost-operator-workshop-central
+http://35.215.101.61:2222/ssh/host/jumphost-operator-workshop
 
 You will be prompted for a password, which is `operat0r`
 
